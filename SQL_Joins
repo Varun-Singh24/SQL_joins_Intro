@@ -1,0 +1,24 @@
+--  SQL JOINS 
+
+SELECT people.first_name, people.state_code , states.division
+FROM people
+JOIN states  
+ON people.state_code == states.state_abbrev ; 
+
+-- IF we want the complete rows from both tables then we use * 
+SELECT * 
+FROM people
+JOIN states  
+ON people.state_code == states.state_abbrev ; 
+
+-- Also with conditions ; 
+SELECT * 
+FROM people
+JOIN states ON people.state_code == states.state_abbrev 
+WHERE states.region ='South' AND people.first_name LIKE 'J%' ; 
+
+-- We can also get the results without using joins -- Implicit JOINS 
+SELECT people.first_name, states.state_name 
+FROM people , states 
+Where 
+people.state_code = states.state_abbrev ; 
